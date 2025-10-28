@@ -11,10 +11,10 @@ import {
   CheckCircle,
 } from "lucide-react";
 export default function NesidioblastoseFlowchart() {
-  const Section = ({ icon: Icon, title, color, children, number }) => (
+  const Section = ({ isTop = false, icon: Icon, title, color, children, number }) => (
     <div
       className="bg-white rounded-lg shadow-lg border-2 p-3 h-full flex flex-col"
-      style={{ borderColor: color, width: "280px", height: "336px" }}
+      style={{ borderColor: color, width: "280px", height: isTop ? "270px" : "336px" }}
     >
       <div className="flex items-center gap-2 mb-2">
         <div
@@ -37,16 +37,14 @@ export default function NesidioblastoseFlowchart() {
     </div>
   );
   return (
-    <div className="bg-[#f6f6e9]">
+    <div className="bg-[#f6f6e9] p-y-4">
       <div className="mb-4 text-center">
         {/* <h1 className="text-2xl font-bold text-indigo-700">Nesidioblastose Pós-Derivação Gástrica (NIPHS)</h1> */}
-        <p className="text-sm text-[#f46b16]">
-          Paciente Feminina, 45 anos - Derivação gástrica em Y-de-Roux há 18 meses
-        </p>
+        <p className="text-sm text-[#f46b16]">Paciente Feminina, 45 anos - Bypass Gástrico em Y-de-Roux há 18 meses</p>
       </div>
       <div className="w-full flex gap-3 flex-col items-center flex-1">
         <div className="flex flex-row gap-3 items-center">
-          <Section icon={Stethoscope} title="INÍCIO DOS SINTOMAS" color="#f59e0b" number="1">
+          <Section icon={Stethoscope} title="INÍCIO DOS SINTOMAS" color="#f59e0b" number="1" isTop={true}>
             <div className="space-y-2">
               <p className="font-semibold text-orange-700">Episódios recorrentes:</p>
               <ul className="ml-3 space-y-1">
@@ -63,7 +61,7 @@ export default function NesidioblastoseFlowchart() {
             </div>
           </Section>
           <Arrow />
-          <Section icon={FlaskConical} title="AVALIAÇÃO LABORATORIAL" color="#10b981" number="2">
+          <Section icon={FlaskConical} title="AVALIAÇÃO LABORATORIAL" color="#10b981" number="2" isTop={true}>
             <div className="space-y-2">
               <p className="font-semibold text-emerald-700 mb-1">Durante hipoglicemia:</p>
               <div className="space-y-1">
@@ -88,7 +86,7 @@ export default function NesidioblastoseFlowchart() {
             </div>
           </Section>
           <Arrow />
-          <Section icon={FileText} title="TESTES FUNCIONAIS" color="#8b5cf6" number="3">
+          <Section icon={FileText} title="TESTES FUNCIONAIS" color="#8b5cf6" number="3" isTop={true}>
             <div className="space-y-2">
               <div className="bg-purple-50 p-2 rounded">
                 <p className="font-semibold">Jejum 72h:</p> <p className="text-red-600 font-medium">Negativo</p>
@@ -106,17 +104,17 @@ export default function NesidioblastoseFlowchart() {
         <div className="flex flex-row gap-3 items-center">
           <Section icon={Hospital} title="EXAMES DE IMAGEM" color="#06b6d4" number="4">
             <div className="space-y-1.5">
-              <div className="border-b pb-1">
+              <div className="border-b pb-1 border-[#22d3ee]">
                 <p className="font-medium">TC abdome (17/12/24):</p>
                 <p className="text-gray-600">Sem lesões pancreáticas</p>
               </div>
-              <div className="border-b pb-1">
+              <div className="border-b pb-1 border-[#22d3ee]">
                 <p className="font-medium">RM/TC funcional:</p> <p className="text-gray-600">Sem foco insulinomatoso</p>
               </div>
-              <div className="border-b pb-1">
+              <div className="border-b pb-1 border-[#22d3ee]">
                 <p className="font-medium">EDA (09/05/24):</p> <p className="text-gray-600">Anatomia normal</p>
               </div>
-              <div className="border-b pb-1">
+              <div className="border-b pb-1 border-[#22d3ee]">
                 <p className="font-medium">Anatomopatológico:</p> <p className="text-gray-600">Gastrite + H. pylori</p>
               </div>
               <div>
